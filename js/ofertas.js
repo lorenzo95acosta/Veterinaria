@@ -3,16 +3,17 @@ let listaOfertas=[];
 function mostrarOfertas(){
     let html="";
     for(oferta of listaOfertas){
-        html += `<h3>${oferta.name}</h3>
-        <li>${oferta.descripcion}</li>
-        <li>${oferta.precio}</li>`
+        html += `<h3><a href="#">${oferta.nombre}</a></h3>
+        <li>Descripción del pack: ${oferta.descripcion}</li>
+        <li>Precio: ${oferta.precio}</li>
+        <li>Precio por oferta:${oferta.descuento}</li>`
     }
 
-    document.getElementById("listaofertas").innerHTML = html;
+    document.getElementById("listaOfertas").innerHTML = html;
 }
 
 document.addEventListener("DOMContentLoaded",function(e){
-    peticion("https://gist.githubusercontent.com/anaclaraolivera/ea778a89ae96a339c88b8ca265805976/raw/0bb5bc8eae260acc5ccc493f6e51f8eb578b1ecc/gistfile1.txt")
+    peticion("https://gist.githubusercontent.com/anaclaraolivera/50f67c8402d6bc94c98093326526de55/raw/9528dafb2a55dbd022c0962dbc2dc7371eeadff9/gistfile1.txt")
     .then(respuesta=>{
         if(respuesta.estado==="ok"){
             listaOfertas= respuesta.datos;

@@ -12,9 +12,11 @@
 </head>
 <body>
     <h2>Productos</h2>
-<div><input type="text" id="myInput" onkeyup="myFunction()" placeholder="buscar productos" title="Type in a name"></div>
+<div><input type="text" id="buscar" onkeyup="filtrar(buscarProductos, listaProductos)" placeholder="buscar productos" title="Type in a name"></div>
 
-    <div id="listaProductos"></div>
+    <div>
+        <ul  id="listaProductos"></ul>
+    </div>
     
     <script src="js/util.js"></script>
     <script src="js/productos.js"></script>

@@ -3,7 +3,7 @@ let listaProductos=[];
 function mostrarProductos(){
     let html="";
     for(producto of listaProductos){
-        html += `<h3>${producto.name}</h3>
+        html += `<h3><a href="#">${producto.name}</a></h3>
         <li>${producto.descripcion}</li>
         <li>${producto.precio}</li>`
     }
