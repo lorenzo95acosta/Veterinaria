@@ -8,7 +8,7 @@ function mostrarProductos(){
         <li>${producto.precio}</li>`
     }
 
-    document.getElementById("lista").innerHTML = html;
+    document.getElementById("listaProductos").innerHTML = html;
 }
 
 document.addEventListener("DOMContentLoaded",function(e){
