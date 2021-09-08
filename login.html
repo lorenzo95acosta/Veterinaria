@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    <title>Login Veterinaria - Grupo 6</title>
+</head>
+<body class="text-center">
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="active"> Sign In </h2>
+        <h2 class="inactive underlineHover">Sign Up </h2>
+    
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="perro.jpg" id="icon" alt="User Icon" />
+        </div>
+    
+        <!-- Login Form -->
+        <form action="productos.html">
+          <input type="text" id="nombre" class="fadeIn second" name="usuario" placeholder="Usuario" required>
+          <input type="password" id="pass" class="fadeIn third" name="contraseña" placeholder="Contraseña" required>
+           <!--Se puede hacer con addEeventListener, o se puede usar  onclick = "validarDatos()"-->
+          <input type="button"  class="fadeIn fourth" value="Ingresar" onclick="validar()">
+        </form>
+    
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+          <a class="underlineHover" href="#">Te olvidaste la contraseña?</a>
+        </div>
+    
+      </div>
+    </div>
+</html>
