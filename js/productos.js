@@ -1,12 +1,5 @@
 let listaProductos=[];
 
-function saludar(){
-    let string = ', ';
-    string += localStorage.getItem('nombre');
-    let nombreUsuario = document.getElementById('nombreUsuario');
-    nombreUsuario.innerHTML += string;
-}
-
 function mostrarProductos(){
     let html="";
     for(producto of listaProductos){
@@ -19,7 +12,6 @@ function mostrarProductos(){
 }
 
 document.addEventListener("DOMContentLoaded",function(e){
-    saludar();
     peticion("https://api.npoint.io/89dfbc7824a6ef5ba341")
     .then(respuesta=>{
         if(respuesta.estado==="ok"){

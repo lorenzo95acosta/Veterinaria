@@ -4,7 +4,7 @@ function validar(){
     let pass = document.getElementById("pass").value;
     if((nombre !=="")&& (pass!== "")){
         localStorage.setItem('nombre', nombre);
-        window.location.href="productos.html";
+        window.location.href="categorias.html";
     }
     else{
         alert("debe completar los campos");
