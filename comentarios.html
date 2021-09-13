@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/productos.css">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <title>Friends</title>
+</head>
+
+<body style="background-color:  #56baed;">
+
+    <div class="container">
+        <div  class="form-group">
+            <input  id="fecha" type="date" id="start" name="trip-start" value="2021-07-21" min="2020-01-01" max="2022-12-31">
+        </div>
+        <div class="form-group">
+            <textarea  id="comentario"  class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Comentario:"></textarea>
+          </div>
+          <button  id="agregar" type="button" class="btn btn-primary" onclick="obtenerValores()">Agregar comentario</button>
+    </div>
+    
+</body>
+<script src="js/comentario.js"></script>
+</html>
