@@ -3,8 +3,25 @@ function obtenerValores(){
     let coment = 'Esto es un comentario';
     coment = document.getElementById('comentario').value;
     date = document.getElementById('fecha').value;
-    sessionStorage.setItem('comentario', coment);
-    sessionStorage.setItem('fecha', date);
+    string += `<p> `+date+`</p>
+    <p>`+coment+`</p>`
+    let contenedor = document.getElementById('comentarioAExponer');
+    contenedor.innerHTML = string;
 }
 
-document.addEventListener(DOMcon)
+function mostrarComentario(){
+    let coment = sessionStorage.getItem('comentario');
+    let date = sessionStorage.getItem('fecha');
+    let string ='';
+    if (coment != undefined && date  != undefined ){
+        string += `<p> `+date+`</p>
+        <p>`+coment+`</p>`
+        let contenedor = document.getElementById('comentarioAExponer');
+        contenedor.innerHTML = string;
+    }
+
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    mostrarComentario();
+})
