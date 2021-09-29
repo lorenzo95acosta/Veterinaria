@@ -20,7 +20,19 @@ function peticion(url){
         return resultado;
     })
 }
+function saludar(){
+    let string = '';
+    string += localStorage.getItem('nombre');
+    let nombreUsuario = document.getElementById('nombreUsuario');
+    nombreUsuario.innerHTML += string;
+}
+
+
+function cerrarSesion() {
+    localStorage.clear();
+    location.href= 'login.html';
+}
 
 document.addEventListener("DOMContentLoaded",function(e){
-   
+   saludar();
 })
