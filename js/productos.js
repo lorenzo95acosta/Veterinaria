@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded",function(e){
     .then(respuesta=>{
         if(respuesta.estado==="ok"){
             listaProductos= respuesta.datos;
+            console.log(listaProductos.datos)
             mostrarProductos();
         }
     }
