@@ -1,0 +1,25 @@
+{
+    "articles": [
+      {
+        "name": "Equilibrio para gatos",
+        "count": 2,
+        "unitCost": 1400,
+        "currency": "UYU",
+        "src": "img/1.jpg"
+      },
+      {
+        "name": "Pedigree para cachorros",
+        "count": 1,
+        "unitCost": 2400,
+        "currency": "UYU",
+        "src": "img/2.jpg"
+      },
+      {
+        "name": "Torre rascador",
+        "count": 1,
+        "unitCost": 3500,
+        "currency": "UYU",
+        "src": "img/3.jpg"
+      }
+    ]
+  }
