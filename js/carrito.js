@@ -1,47 +1,57 @@
-let productoCarrito=[];
+//url para carrito https://virmorrone.github.io/veterinaria-api/carrito-final.json
+let productosCarrito=[];
 
-function mostrarCarrito() {
-
-    let carrito= "";
-    carrito += `
-    <th scope="row">${productoCarrito.name}</th>
-          <td>${productoCarrito.descripcion}</td>
-          <td>${productoCarrito.precio}</td>
-          <td> 
-          <div class="form-group">
-          <label for="score"></label>
-          <select class="form-control" id="cantidad">
-            <option disabled selected>Seleccione un número</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-          </select>
-        </div>
-          </td>
-          <td></td>
-    
-    `
-
-document.getElementById("carrito").innerHTML = carrito;
+/*completa la función para actualizar el subtotal del producto al modificar la cantidad del mismo*/
+function updateProductoSubtotal(costo, total, id){
+    let subtotal = document.getElementById(id);
+    subtotal.innerHTML =costo*total;
 }
 
-function hacerSubtotal() {
-    let cantidad = document.getElementById("cantidad").value;
-}
-
-
-document.addEventListener("DOMContentLoaded",function(e){
-    peticion("https://gist.githubusercontent.com/anaclaraolivera/9dcfbac7a26d61e54ae27d22bdd0fb92/raw/fdd065f0617ceaa5b9e783944233ffe648aae370/carrito.json")
-    .then(respuesta=>{
-        if(respuesta.estado==="ok"){
-            productoCarrito= respuesta.datos;
-            console.log(productoCarrito.datos)
-            mostrarCarrito();
-        }
+/*modificar la función showCarrito para que aparezca el subtotal del producto en base a la cantidad y precio unitario*/
+function showCarrito(){
+    /*mostrar los productos del carrito con el input correspondiente a la cantidad*/
+    let htmlToAppend = "";
+    for(let  i =  0; i <  productosCarrito.length ; i++){
+        
+        htmlToAppend += `
+        <tr >
+        <td><img src="${productosCarrito[i].src}" class = "img-fluid" style ="max-width:50px!important"></td>
+        <td class="align-middle">${productosCarrito[i].name}</td>
+        <td class="align-middle">${productosCarrito[i].currency} ${productosCarrito[i].unitCost}</td>
+        <td class="align-middle"><input type="number" min ="1" value=${productosCarrito[i].count} onChange="updateProductoSubtotal(${productosCarrito[i].unitCost}, this.value , ${i}); sumaTotal()"></td>
+        <td class="align-middle subtotal"  id="${i}"></td>
+        </tr>`                      
     }
-    )
-})
+    document.getElementById("carrito").innerHTML = htmlToAppend;
+}
 
+
+function sumaTotal(){
+    let suma = 0
+    let subtotal = document.getElementsByClassName("subtotal");
+    for(valor of subtotal){
+        suma += parseInt(valor.innerHTML);
+    }
+    let total = document.getElementById('totalCarrito');
+    total.innerHTML = "El total de su pedido es: " + suma;
+}
+
+
+function getCarrito(url){
+    
+    return fetch(url)
+    .then(respuesta=>{
+        return respuesta.json();
+    })
+    
+}
+
+document.addEventListener("DOMContentLoaded", function(e){
+    getCarrito("https://virmorrone.github.io/veterinaria-api/carrito-final.json")
+    .then(respuesta=>{
+        productosCarrito = respuesta.articles;
+        showCarrito();
+        console.log(productosCarrito);
+    })
+    updateProductoSubtotal()
+})
