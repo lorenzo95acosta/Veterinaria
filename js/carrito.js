@@ -46,9 +46,8 @@ function getCarrito(url){
     
 }
 
-function obtenerCantidad(){
-    let cantidad = document.getElementById('cant0');
-    cantidad.dataset.value;
+function verCantidad(){
+
 }
 
 document.addEventListener("DOMContentLoaded", function(e){
@@ -59,5 +58,5 @@ document.addEventListener("DOMContentLoaded", function(e){
         console.log(productosCarrito);
     })
     updateProductoSubtotal()
-    obtenerCantidad(1);
+    verCantidad();
 })
