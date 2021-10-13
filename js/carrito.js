@@ -18,7 +18,7 @@ function showCarrito(){
         <td><img src="${productosCarrito[i].src}" class = "img-fluid" style ="max-width:50px!important"></td>
         <td class="align-middle">${productosCarrito[i].name}</td>
         <td class="align-middle">${productosCarrito[i].currency} ${productosCarrito[i].unitCost}</td>
-        <td class="align-middle"><input type="number" min ="1" value=${productosCarrito[i].count} onChange="updateProductoSubtotal(${productosCarrito[i].unitCost}, this.value , ${i}); sumaTotal()"></td>
+        <td class="align-middle"><input type="number" id="cant${i}" min ="1" value=${productosCarrito[i].count} onChange="updateProductoSubtotal(${productosCarrito[i].unitCost}, this.value , ${i}); sumaTotal()"></td>
         <td class="align-middle subtotal"  id="${i}"></td>
         </tr>`                      
     }
@@ -46,6 +46,11 @@ function getCarrito(url){
     
 }
 
+function obtenerCantidad(){
+    let cantidad = document.getElementById('cant0');
+    cantidad.dataset.value;
+}
+
 document.addEventListener("DOMContentLoaded", function(e){
     getCarrito("https://virmorrone.github.io/veterinaria-api/carrito-final.json")
     .then(respuesta=>{
@@ -54,4 +59,5 @@ document.addEventListener("DOMContentLoaded", function(e){
         console.log(productosCarrito);
     })
     updateProductoSubtotal()
+    obtenerCantidad(1);
 })
